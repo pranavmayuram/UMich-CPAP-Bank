@@ -7,11 +7,11 @@
 			<h4>Why?</h4>
 			<br/>
 
-			<p>CPAP machines can be extremely expensive, and many people who cannot afford them, are without help for sleeples nights. CPAP machines must also be changed out for many regular sleep apnea patients. We saw an opportunity here for conservation, where owners of out-of-use CPAP machines could donate to us, and we could server as a middle man to transfer these machines to people in need.</p> 
+			<p>CPAP machines can be extremely expensive, and many people who cannot afford them are without help for sleepless nights. CPAP machines must also be changed out for many regular sleep apnea patients. We saw an opportunity here for conservation, where owners of out-of-use CPAP machines could donate to us, and we could serve as a middle man to transfer these machines to people in need.</p> 
 
 			<br/>
 
-			<h4>What does U of M CPAP Bank accept?</h4>
+			<h4>What does {{sitename}} accept?</h4>
 			<br/>
 
 			<p>If you are <strong>someone</strong> with a CPAP machine that is functioning, but no longer necessary for you, please consider donating. If you are a <strong>home care company</strong> we are also open to donations from you!</p>
@@ -25,11 +25,19 @@
 			<h4>How can you help?</h4>
 			<br/>
 
-			<p>If you would like to talk to someone personally, please check our <a ui-sref="contact">Contact Us</a> page, otherwise go ahead and leave some basic information about your machine below. This email will be sent directly to Dr. Schotland, so please leave your email address there as well, so she can contact you as soon as possible. Thanks!</p>
+			<p>To donate a machine, fill out and submit the form below. To learn more, visit our <a ui-sref="contact">Contact Us</a> page. Thanks!</p>
+			<br/>
 
 			<div class="md-whiteframe-z2">
+			<md-toolbar md-scroll-shrink>
+			    <div class="md-toolbar-tools">
+			      <h3>
+			        <span><i class="protect icon"></i> Form to Donate a Machine</span>
+			      </h3>
+			    </div>
+			 </md-toolbar>
 			<div class="md-padding">
-			<form name="donateForm" data-ng-submit="registerUser(registerData)">
+			<form name="donateForm" data-ng-submit="printHiName(donateData)">
 				<div layout layout-sm="column">
 	                <md-input-container flex>
 	                    <label><i class="mail icon"></i> Email Address* :</label>
@@ -40,11 +48,22 @@
 	                </md-input-container>
 	                <md-input-container flex>
 	                    <label><i class="user icon"></i> Your Name* :</label>
-	                    <input type="text" ng-model="registerData[dataModel.primaryAttribute]" required name="name" ng-blur="checkName(registerData[dataModel.primaryAttribute])">
+	                    <input type="text" ng-model="donateData.name" required name="name" ng-blur="checkName(registerData[dataModel.primaryAttribute])">
 	                    <div ng-messages="contactForm.name.$error" role="alert">
 	                      <div ng-message="required" ng-hide="!(errors.nameError)">{{errors.nameError}}</div>
 	                    </div>
 	                </md-input-container>
+	              </div>
+	              <div layout layout-sm="column">
+	              	  <md-input-container flex>
+	                    <md-select placeholder="Years of Use on Machine" ng-model="donateData.usage">
+	                      <md-option ng-repeat="year in years">{{year}}</md-option>
+	                    </md-select>
+	                  </md-input-container>
+	                  <md-input-container flex>
+	                    <label><i class="help circle icon"></i>Reason for Donation :</label>
+	                    <input type="text" ng-model="donateData.reason">
+	                  </md-input-container>
 	              </div>
 	              <div layout layout-sm="column">
 	              	  <md-input-container flex>
@@ -57,14 +76,16 @@
 	                    <input type="text" ng-model="donateData.machineCompany">
 	                  </md-input-container>
 	                  <md-input-container flex>
-	                    <label><i class="treatment icon"></i>Machine Model Number :</label>
+	                    <label># Machine Model Number :</label>
 	                    <input type="text" ng-model="donateData.machineModelNum">
 	                  </md-input-container>
 	              </div>
 		          <md-input-container flex>
 			        <label>Comments/Questions : </label>
-			        <textarea ng-model="postData.blurb" rows="5" md-maxlength="400"></textarea>
+			        <textarea ng-model="donateData.blurb" rows="5" md-maxlength="400"></textarea>
 			      </md-input-container>
+
+			      <span>{{donateData}}</span>
 
 	                <md-button type="submit" class="md-primary" ng-disable="donateForm.$invalid"
 	                           ng-class="{'md-raised md-primary': (donateForm.$dirty && donateForm.$valid) }"

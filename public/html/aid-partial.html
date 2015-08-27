@@ -1,0 +1,73 @@
+<div ng-controller="donateController">
+	<md-content>
+		<div class="md-padding">
+			<h2 class="text-center">Receive Aid</h2>
+			<br/>
+
+			<h4>How can I qualify?</h4>
+			<br/>
+
+			<p>You may qualify for free equipment and/or supplies if:</p> 
+			<ul>
+				<li>You don’t have insurance coverage</li>
+				<li>Your insurance doesn’t cover durable medical equipment (DME)</li>
+				<li>You don’t have the funds to pay for the equipment or the copay</li>
+			</ul>
+
+			<p>You or your health care provider can contact us directly. We will need a prescription for a machine and a copy of your sleep study.</p>
+
+			<br/>
+
+			<h4>Equipment Details</h4>
+			<br/>
+
+			<p>We have CPAP, BiPAP, auto-CPAP, auto-BiPAP, ASV (adaptive servo-ventilation) and AVAPS (average volume assured pressure support) machines at the Bank. And we have given more than 90 machines and various supplies to people who qualify for them.</p>
+
+			<p>University of Michigan <a href="https://homecare.med.umich.edu/MedEQUIP">MedEQUIP</a> cleans and checks the equipment and makes sure it’s functioning properly. Then, it’s perfectly safe and sanitary for another person (you) to use the recycled machines.</p>
+
+			<p>To request a machine, fill out and submit the form below. To learn more, visit our <a ui-sref="contact">Contact Us</a> page. Thanks!</p>
+
+			<br/>
+
+			<div class="md-whiteframe-z2">
+			<md-toolbar md-scroll-shrink>
+			    <div class="md-toolbar-tools">
+			      <h3>
+			        <span><i class="first aid icon"></i> Form to Apply for CPAP Machine</span>
+			      </h3>
+			    </div>
+			 </md-toolbar>
+			<div class="md-padding">
+			<form name="aidForm" data-ng-submit="printHiName(aidData)">
+				<div layout layout-sm="column">
+	                <md-input-container flex>
+	                    <label><i class="mail icon"></i> Email Address* :</label>
+	                    <input type="email" ng-model="aidData.email" required name="email">
+	                    <div ng-messages="contactForm.email.$error" role="alert">
+	                      <div ng-message="required" ng-hide="!(errors.emailError)">{{errors.emailError}}</div>
+	                    </div>
+	                </md-input-container>
+	                <md-input-container flex>
+	                    <label><i class="user icon"></i> Your Name* :</label>
+	                    <input type="text" ng-model="aidData.name" required name="name" ng-blur="checkName(registerData[dataModel.primaryAttribute])">
+	                    <div ng-messages="contactForm.name.$error" role="alert">
+	                      <div ng-message="required" ng-hide="!(errors.nameError)">{{errors.nameError}}</div>
+	                    </div>
+	                </md-input-container>
+	              </div>
+		          <md-input-container flex>
+			        <label>Details : </label>
+			        <textarea ng-model="aidData.blurb" rows="5" md-maxlength="400"></textarea>
+			      </md-input-container>
+
+			      <span>{{aidData}}</span>
+
+	                <md-button type="submit" class="md-primary" ng-disable="aidForm.$invalid"
+	                           ng-class="{'md-raised md-primary': (aidForm.$dirty && aidForm.$valid) }"
+	                           aria-label="Save Project">Send</md-button>
+            </form>
+            </div>
+            </div>
+		</div>
+	</md-content>
+</div>
