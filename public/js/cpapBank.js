@@ -51,12 +51,23 @@ cpapBank.config(function ($locationProvider, $httpProvider, $stateProvider, $url
 });
 
 cpapBank.run(function ($rootScope) {
+	
 	$rootScope.sitename = "U of M CPAP Bank";
 	$rootScope.colorHex = "#0D47A1";
+
 });
 
 cpapBank.controller('AppCtrl', function ($scope, $mdSidenav){
-  $scope.toggleSidenav = function(menuId) {
-    $mdSidenav(menuId).toggle();
-  };
+	
+	$scope.toggleSidenav = function(menuId) {
+		$mdSidenav(menuId).toggle();
+	};
+
 });
+
+cpapBank.controller('donateController', function ($scope, $http, $window, $state){
+	
+	$scope.machineTypes=["CPAP", "BiPAP", "auto-CPAP", "auto-BiPAP", "ASV", "AVAPS"];
+
+});
+

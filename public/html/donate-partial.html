@@ -1,0 +1,77 @@
+<div ng-controller="donateController">
+	<md-content>
+		<div class="md-padding">
+			<h2 class="text-center">Donate Today</h2>
+			<br/>
+
+			<h4>Why?</h4>
+			<br/>
+
+			<p>CPAP machines can be extremely expensive, and many people who cannot afford them, are without help for sleeples nights. CPAP machines must also be changed out for many regular sleep apnea patients. We saw an opportunity here for conservation, where owners of out-of-use CPAP machines could donate to us, and we could server as a middle man to transfer these machines to people in need.</p> 
+
+			<br/>
+
+			<h4>What does U of M CPAP Bank accept?</h4>
+			<br/>
+
+			<p>If you are <strong>someone</strong> with a CPAP machine that is functioning, but no longer necessary for you, please consider donating. If you are a <strong>home care company</strong> we are also open to donations from you!</p>
+
+			<p>We take gently used equipment and supplies that are still in their original plastic packaging. Please note that we cannot take equipment from smoking households because we can’t get the smell out of the equipment.</p>
+
+			<p>University of Michigan <a href="https://homecare.med.umich.edu/MedEQUIP">MedEQUIP</a> cleans and checks the equipment and makes sure it’s functioning properly. Then, it’s perfectly safe and sanitary for another person to use the recycled machines.</p>
+
+			<br/>
+
+			<h4>How can you help?</h4>
+			<br/>
+
+			<p>If you would like to talk to someone personally, please check our <a ui-sref="contact">Contact Us</a> page, otherwise go ahead and leave some basic information about your machine below. This email will be sent directly to Dr. Schotland, so please leave your email address there as well, so she can contact you as soon as possible. Thanks!</p>
+
+			<div class="md-whiteframe-z2">
+			<div class="md-padding">
+			<form name="donateForm" data-ng-submit="registerUser(registerData)">
+				<div layout layout-sm="column">
+	                <md-input-container flex>
+	                    <label><i class="mail icon"></i> Email Address* :</label>
+	                    <input type="email" ng-model="donateData.email" required name="email">
+	                    <div ng-messages="contactForm.email.$error" role="alert">
+	                      <div ng-message="required" ng-hide="!(errors.emailError)">{{errors.emailError}}</div>
+	                    </div>
+	                </md-input-container>
+	                <md-input-container flex>
+	                    <label><i class="user icon"></i> Your Name* :</label>
+	                    <input type="text" ng-model="registerData[dataModel.primaryAttribute]" required name="name" ng-blur="checkName(registerData[dataModel.primaryAttribute])">
+	                    <div ng-messages="contactForm.name.$error" role="alert">
+	                      <div ng-message="required" ng-hide="!(errors.nameError)">{{errors.nameError}}</div>
+	                    </div>
+	                </md-input-container>
+	              </div>
+	              <div layout layout-sm="column">
+	              	  <md-input-container flex>
+	                    <md-select placeholder="Machine Type" ng-model="donateData.machineType">
+	                      <md-option ng-repeat="machineType in machineTypes">{{machineType}}</md-option>
+	                    </md-select>
+	                  </md-input-container>
+	                  <md-input-container flex>
+	                    <label><i class="treatment icon"></i>Machine Company Name :</label>
+	                    <input type="text" ng-model="donateData.machineCompany">
+	                  </md-input-container>
+	                  <md-input-container flex>
+	                    <label><i class="treatment icon"></i>Machine Model Number :</label>
+	                    <input type="text" ng-model="donateData.machineModelNum">
+	                  </md-input-container>
+	              </div>
+		          <md-input-container flex>
+			        <label>Comments/Questions : </label>
+			        <textarea ng-model="postData.blurb" rows="5" md-maxlength="400"></textarea>
+			      </md-input-container>
+
+	                <md-button type="submit" class="md-primary" ng-disable="donateForm.$invalid"
+	                           ng-class="{'md-raised md-primary': (donateForm.$dirty && donateForm.$valid) }"
+	                           aria-label="Save Project">Send</md-button>
+            </form>
+            </div>
+            </div>
+		</div>
+	</md-content>
+</div>
