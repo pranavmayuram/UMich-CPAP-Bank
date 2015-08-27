@@ -1,7 +1,9 @@
-<html lang="en">
+<html lang="en" ng-app="cpapBank" >
   <head>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <title>{{sitename}}</title>
-   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.1/angular-material.min.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.1/angular-material.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
      <!-- Angular Material Dependencies -->
@@ -46,7 +48,7 @@
 
     </style>
   </head>
-  <body layout="column" ng-app="cpapBank" ng-controller="AppCtrl">
+  <body layout="column" ng-controller="AppCtrl">
     <md-toolbar hide-gt-md layout="row">
       <div class="md-toolbar-tools">
         <md-button ng-click="toggleSidenav('left')" class="md-icon-button">
@@ -58,7 +60,7 @@
       </div>
     </md-toolbar>
     <div layout="row" flex>
-        <md-sidenav style="background:#00274c; z-index:1200;" layout="column" class="md-sidenav-left md-whiteframe-z2 md-default-theme" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+        <md-sidenav style="background:{{colorHex}}; z-index:1200;" layout="column" class="md-sidenav-left md-whiteframe-z2 md-default-theme" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
         <header class="nav-header text-center">
             <br/>
             <img src="icons/blockM.png" width="150"alt="">
@@ -68,7 +70,7 @@
           <md-list md-default-theme>
           <md-divider></md-divider>
             <md-list-item>
-              <div ng-click="toggleSidenav('left');" ui-sref="myProfile" ui-sref-active = "active">
+              <div ng-click="toggleSidenav('left');" ui-sref="mission" ui-sref-active = "active">
                 <md-item-content md-ink-ripple layout="row" layout-align="start center">
                   <div class="inset">
                     <i class="heartbeat icon"></i>
@@ -80,19 +82,19 @@
             </md-list-item>
             <md-divider></md-divider>
             <md-list-item>
-              <div ng-click="toggleSidenav('left');" ui-sref="myProfile" ui-sref-active = "active">
+              <div ng-click="toggleSidenav('left');" ui-sref="cpapInfo" ui-sref-active = "active">
                 <md-item-content md-ink-ripple layout="row" layout-align="start center">
                   <div class="inset">
                     <i class="info circle icon"></i>
                   </div>
-                  <div class="inset">What is a CPAP?
+                  <div class="inset">What is CPAP?
                   </div>
                 </md-item-content>
               </div>
             </md-list-item>
             <md-divider></md-divider>
             <md-list-item>
-              <div ng-click="toggleSidenav('left');" ui-sref="allUsers" ui-sref-active = "active">
+              <div ng-click="toggleSidenav('left');" ui-sref="donate" ui-sref-active = "active">
                 <md-item-content md-ink-ripple layout="row" layout-align="start center">
                   <div class="inset">
                     <i class="protect icon"></i>
@@ -104,7 +106,7 @@
             </md-list-item>
             <md-divider></md-divider>
             <md-list-item>
-              <div ng-click="toggleSidenav('left');" ui-sref="allUsers" ui-sref-active = "active">
+              <div ng-click="toggleSidenav('left');" ui-sref="aid" ui-sref-active = "active">
                 <md-item-content md-ink-ripple layout="row" layout-align="start center">
                   <div class="inset">
                     <i class="first aid icon"></i>
@@ -116,7 +118,7 @@
             </md-list-item>
             <md-divider></md-divider>
             <md-list-item>
-              <div ng-click="toggleSidenav('left');" ui-sref="statistics" ui-sref-active = "active">
+              <div ng-click="toggleSidenav('left');" ui-sref="drSchotland" ui-sref-active = "active">
                 <md-item-content md-ink-ripple layout="row" layout-align="start center">
                   <div class="inset">
                     <i class="doctor icon"></i>
@@ -128,7 +130,7 @@
             </md-list-item>
             <md-divider></md-divider>
             <md-list-item>
-              <div ng-click="toggleSidenav('left');" ui-sref="allUsers" ui-sref-active = "active">
+              <div ng-click="toggleSidenav('left');" ui-sref="contact" ui-sref-active = "active">
                 <md-item-content md-ink-ripple layout="row" layout-align="start center">
                   <div class="inset">
                     <i class="text telephone icon"></i>

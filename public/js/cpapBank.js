@@ -27,16 +27,32 @@ cpapBank.config(function ($locationProvider, $httpProvider, $stateProvider, $url
 		.state('drSchotland', {
 			url: '/drSchotland',
 			templateUrl: 'html/drSchotland-partial.html'
-			// could have nested views here for each stat?
-			// OR could have just one html page
+		})
+
+		.state('contact', {
+			url: '/contact',
+			templateUrl: 'html/contact-partial.html'
 		})
 
 	$urlRouterProvider.otherwise('/mission');
+
+	$mdThemingProvider.theme('new')
+    	.primaryPalette('blue', {
+        'default': '900' }) // by default use shade 900 from the grey palette for primary intentions
+    	.accentPalette('amber',  {
+    	'default': '600' })
+    	.warnPalette('red');
+	/*$mdThemingProvider.theme('default')
+		.primaryPalette('red')
+		
+		.dark();*/
+	$mdThemingProvider.setDefaultTheme('new');
 
 });
 
 cpapBank.run(function ($rootScope) {
 	$rootScope.sitename = "U of M CPAP Bank";
+	$rootScope.colorHex = "#0D47A1";
 });
 
 cpapBank.controller('AppCtrl', function ($scope, $mdSidenav){
