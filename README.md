@@ -12,7 +12,7 @@ Open your command line (Terminal). Run the following commands. For each command,
 1. ````cd ~/Desktop````
 2. ````git clone https://github.com/pranavmayuram/UMich-CPAP-Bank.git````
 3. ````cd UMich-CPAP-Bank/public/````
-4. ````python -m SimpleHTTPServer 8000````
+4. ````python -m SimpleHTTPServer 8000```` After this, you will see ````Serving HTTP on 0.0.0.0 port 8000 ...````, which means that the website is running.
 
 Redirect your browser to: http://localhost:8000
 
