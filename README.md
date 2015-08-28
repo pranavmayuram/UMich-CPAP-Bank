@@ -1,4 +1,6 @@
-# UMich CPAP Bank    <img src="public/icons/blockM.png" width="100"/>
+<p align="center"><img src="public/icons/blockM.png" width="100"/></p>
+
+#U of M CPAP Bank
 Website design for University of Michigan CPAP Bank.
 
 ###Steps to Download and Run the Application
