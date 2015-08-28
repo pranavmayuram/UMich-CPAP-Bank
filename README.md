@@ -3,6 +3,8 @@
 #U of M CPAP Bank
 Website design for University of Michigan CPAP Bank.
 
+<strong>View project at http://pranavmayuram.github.io/UMich-CPAP-Bank/public.</strong>
+
 ###Steps to Download and Run the Application
 
 Assumes use of Mac OSX
